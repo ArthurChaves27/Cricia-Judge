@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    height: 100vh; /* Ocupa a altura toda da tela */
+    overflow: hidden; /* Impede barra de rolagem geral */
+}
+
+/* Lado Esquerdo: Enunciado da Prova */
+.problem-area {
+    flex: 1; /* Ocupa metade da largura */
+    padding: 20px;
+    background-color: #f4f4f9;
+    overflow-y: auto; /* Se o texto for grande, cria barra de rolagem só aqui */
+    border-right: 1px solid #ccc;
+}
+
+/* Lado Direito: Editor de Código e Botão */
+.editor-area {
+    flex: 1.5; /* Ocupa a outra metade */
+    display: flex;
+    flex-direction: column; /* Organiza itens em coluna vertical */
+    padding: 20px;
+    background-color: #2d2d2d; /* Cor escura estilo VS Code */
+    color: white;
+}
+
+h2 { color: #333; }
+.problem-area h2 { color: #2d2d2d; }
+.editor-area h2 { color: #fff; margin-top: 0;}
+
+.problem-description {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.examples {
+    margin-top: 20px;
+    font-family: monospace;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Nossa Caixa de Texto que finge ser o editor */
+#code-editor {
+    flex-grow: 1; /* Ocupa todo o espaço vertical disponível na área direita */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    resize: none; /* Impede o aluno de redimensionar a caixa */
+    outline: none; /* Remove a borda azul ao clicar */
+}
+
+#code-editor:focus {
+    border-color: #007bff; /* Borda azul ao clicar, para dar feedback */
+}
+
+/* Área do Botão */
+.action-area {
+    margin-top: 20px;
+    text-align: right; /* Alinha o botão à direita */
+}
+
+.submit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745; /* Verde Sucesso */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s; /* Efeito suave ao passar o mouse */
+}
+
+.submit-btn:hover {
+    background-color: #218838; /* Verde mais escuro ao passar o mouse */
+}
+
+/* Modal (Janela de Feedback) - Escondida por padrão */
+.modal {
+    display: none; /* Escondido */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center; align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #333;
+}
